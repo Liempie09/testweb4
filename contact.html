@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - British Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .contact-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+        
+        .contact-content {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-form-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+        
+        .contact-form-section h2 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--cream);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary-green);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: var(--secondary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.3);
+        }
+        
+        .contact-info-section {
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+        
+        .contact-info-section h2 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .info-icon {
+            font-size: 2rem;
+            min-width: 40px;
+        }
+        
+        .info-content h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .info-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .social-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .social-section h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+        
+        .faq-section {
+            margin-top: 4rem;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+        
+        .faq-section h2 {
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-gold);
+        }
+        
+        .faq-question {
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">British Kitchen</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="full-english-breakfast.html">Breakfast</a></li>
+                <li><a href="fish-and-chips.html">Fish & Chips</a></li>
+                <li><a href="shepherds-pie.html">Shepherd's Pie</a></li>
+                <li><a href="apple-pie.html">Apple Pie</a></li>
+                <li><a href="fun-zone.html">Fun Zone</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div>
+            <h1>Get In Touch</h1>
+            <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto;">We'd love to hear from you! Questions, feedback, or just want to chat about British cuisine?</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-section fade-in">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="recipe">Recipe Question</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us what's on your mind..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info-section fade-in">
+                <h2>Contact Information</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">📧</div>
+                    <div class="info-content">
+                        <h3>Email Us</h3>
+                        <p>britishkitchen@example.com<br>We typically respond within 24-48 hours</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">🏫</div>
+                    <div class="info-content">
+                        <h3>School Project</h3>
+                        <p>This is an English class project exploring traditional British cuisine through hands-on cooking and research.</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">👥</div>
+                    <div class="info-content">
+                        <h3>Our Team</h3>
+                        <p>A group of 5 passionate students dedicated to celebrating British culinary traditions.</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">⏰</div>
+                    <div class="info-content">
+                        <h3>Project Timeline</h3>
+                        <p>Active project period: 2024<br>Ongoing updates as we cook and document each dish</p>
+                    </div>
+                </div>
+                
+                <div class="social-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">📧</a>
+                        <a href="#" class="social-icon">📸</a>
+                        <a href="#" class="social-icon">📱</a>
+                        <a href="#" class="social-icon">🌐</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section fade-in">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: What is British Kitchen?</div>
+                <div class="faq-answer">A: British Kitchen is our English class project where we explore traditional British cuisine by cooking four iconic dishes and documenting the entire process, including historical research and recipe development.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: Can I use your recipes?</div>
+                <div class="faq-answer">A: Absolutely! All our recipes are shared for educational purposes. Feel free to try them at home and let us know how they turn out!</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: How did you choose these four dishes?</div>
+                <div class="faq-answer">A: We selected dishes that represent different aspects of British cuisine: a hearty breakfast, a beloved takeaway, a comforting main course, and a classic dessert. Each dish has significant cultural and historical importance in British culinary tradition.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: Are you professional chefs?</div>
+                <div class="faq-answer">A: No, we're students! This project is about learning, exploring, and celebrating British cuisine. We've done extensive research and practiced our cooking skills to create authentic versions of these traditional dishes.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: Will you add more dishes in the future?</div>
+                <div class="faq-answer">A: While our current project focuses on these four dishes, we're always interested in exploring more British cuisine. Stay tuned for potential updates!</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: How can I support your project?</div>
+                <div class="faq-answer">A: Share our website with others interested in British cuisine, try our recipes, and send us your feedback! Your engagement and encouragement mean the world to us.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 British Kitchen - English Class Project</p>
+            <p>Exploring Traditional British Cuisine with Passion and Research</p>
+            <div class="social-links">
+                <a href="contact.html" class="social-link">📧</a>
+                <a href="team.html" class="social-link">👥</a>
+                <a href="index.html" class="social-link">🏠</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Show success message
+            alert(`Thank you, ${name}! Your message has been received. We'll get back to you at ${email} as soon as possible.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

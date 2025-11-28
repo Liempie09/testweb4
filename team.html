@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - British Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .team-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .team-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+        
+        .team-content {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .team-members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+        }
+        
+        .team-member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px var(--shadow);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+            border: 5px solid var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member-card:hover .member-avatar {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .member-name {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-role {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .member-bio {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .skill-tag {
+            background: var(--cream);
+            color: var(--primary-green);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            padding: 3rem 0;
+            background: var(--cream);
+            border-radius: 15px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .team-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .team-members-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">British Kitchen</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="full-english-breakfast.html">Breakfast</a></li>
+                <li><a href="fish-and-chips.html">Fish & Chips</a></li>
+                <li><a href="shepherds-pie.html">Shepherd's Pie</a></li>
+                <li><a href="apple-pie.html">Apple Pie</a></li>
+                <li><a href="fun-zone.html">Fun Zone</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Team Hero -->
+    <section class="team-hero">
+        <div>
+            <h1>Meet Our Team</h1>
+            <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto;">Five passionate students on a culinary journey through British cuisine</p>
+        </div>
+    </section>
+
+    <!-- Team Content -->
+    <section class="team-content">
+        <div class="team-intro">
+            <h2 class="section-title">About Our Team</h2>
+            <p>We are a group of five dedicated students working together on this English class project. Our mission is to explore, document, and celebrate traditional British cuisine through hands-on cooking, historical research, and creative presentation. Each team member brings unique skills and perspectives to make this project a success.</p>
+        </div>
+
+        <!-- Team Members Grid -->
+        <div class="team-members-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member-card fade-in">
+                <div class="member-avatar">👨‍🍳</div>
+                <h3 class="member-name">Team Member 1</h3>
+                <div class="member-role">Head Chef & Project Leader</div>
+                <p class="member-bio">Leading our culinary adventures with a passion for traditional cooking methods. Specializes in breakfast dishes and coordinates our cooking sessions.</p>
+                <div class="member-skills">
+                    <span class="skill-tag">Cooking</span>
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Recipe Research</span>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member-card fade-in">
+                <div class="member-avatar">👩‍🍳</div>
+                <h3 class="member-name">Team Member 2</h3>
+                <div class="member-role">Sous Chef & Baking Specialist</div>
+                <p class="member-bio">Expert in pastry and desserts with a keen eye for detail. Responsible for perfecting our pie recipes and ensuring quality in every dish.</p>
+                <div class="member-skills">
+                    <span class="skill-tag">Baking</span>
+                    <span class="skill-tag">Pastry</span>
+                    <span class="skill-tag">Quality Control</span>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member-card fade-in">
+                <div class="member-avatar">📸</div>
+                <h3 class="member-name">Team Member 3</h3>
+                <div class="member-role">Food Photographer & Visual Designer</div>
+                <p class="member-bio">Captures the beauty of our dishes through stunning photography. Creates visual content that brings our culinary journey to life.</p>
+                <div class="member-skills">
+                    <span class="skill-tag">Photography</span>
+                    <span class="skill-tag">Design</span>
+                    <span class="skill-tag">Visual Arts</span>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-member-card fade-in">
+                <div class="member-avatar">📝</div>
+                <h3 class="member-name">Team Member 4</h3>
+                <div class="member-role">Historian & Content Writer</div>
+                <p class="member-bio">Researches the fascinating history behind each dish. Documents our cooking process and writes engaging content about British culinary traditions.</p>
+                <div class="member-skills">
+                    <span class="skill-tag">Research</span>
+                    <span class="skill-tag">Writing</span>
+                    <span class="skill-tag">History</span>
+                </div>
+            </div>
+
+            <!-- Team Member 5 -->
+            <div class="team-member-card fade-in">
+                <div class="member-avatar">💻</div>
+                <h3 class="member-name">Team Member 5</h3>
+                <div class="member-role">Web Developer & Tech Coordinator</div>
+                <p class="member-bio">Brings our project online with creative web design. Manages our digital presence and ensures everything runs smoothly behind the scenes.</p>
+                <div class="member-skills">
+                    <span class="skill-tag">Web Design</span>
+                    <span class="skill-tag">Technology</span>
+                    <span class="skill-tag">Organization</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Stats -->
+        <div class="team-stats">
+            <div class="stat-box">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Team Members</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Dishes Prepared</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Hours of Research</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Passion & Dedication</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 British Kitchen - English Class Project</p>
+            <p>Exploring Traditional British Cuisine with Passion and Research</p>
+            <div class="social-links">
+                <a href="contact.html" class="social-link">📧</a>
+                <a href="team.html" class="social-link">👥</a>
+                <a href="index.html" class="social-link">🏠</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

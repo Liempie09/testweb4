@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full English Breakfast - British Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dish-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .dish-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+        
+        .dish-hero-emoji {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .ingredients-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .ingredients-box h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .ingredient-item {
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--cream);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ingredient-item:last-child {
+            border-bottom: none;
+        }
+        
+        .instructions-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .instructions-box h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .step {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .history-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            line-height: 1.8;
+        }
+        
+        .history-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tip-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tip-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tip-card h4 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .nutrition-table {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            margin-top: 2rem;
+        }
+        
+        .nutrition-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .nutrition-table th,
+        .nutrition-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--cream);
+        }
+        
+        .nutrition-table th {
+            background: var(--cream);
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dish-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">British Kitchen</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="full-english-breakfast.html">Breakfast</a></li>
+                <li><a href="fish-and-chips.html">Fish & Chips</a></li>
+                <li><a href="shepherds-pie.html">Shepherd's Pie</a></li>
+                <li><a href="apple-pie.html">Apple Pie</a></li>
+                <li><a href="fun-zone.html">Fun Zone</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dish Hero -->
+    <section class="dish-hero">
+        <div>
+            <div class="dish-hero-emoji">🍳</div>
+            <h1>Full English Breakfast</h1>
+            <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto;">The hearty morning feast that has fueled Britain for generations</p>
+        </div>
+    </section>
+
+    <!-- Historical Background -->
+    <section class="content-section">
+        <h2 class="section-title">Historical Background</h2>
+        <div class="history-content">
+            <p>The Full English Breakfast, affectionately known as a "fry-up," has been a cornerstone of British cuisine since the Victorian era. During the 1800s, the Industrial Revolution transformed Britain, and workers needed substantial meals to fuel long days of labor. The wealthy gentry of the time popularized the concept of a lavish breakfast spread, which eventually became accessible to all social classes.</p>
+            
+            <p>Originally served in the homes of the aristocracy, the Full English Breakfast was a symbol of hospitality and abundance. The tradition was that guests could help themselves to a variety of hot dishes kept warm on a sideboard. This practice, known as "breakfast service," became a hallmark of British country house hospitality.</p>
+            
+            <p>By the early 20th century, the Full English Breakfast had become a staple in British households, cafes, and hotels. Each region developed its own variations, but the core components remained consistent: eggs, bacon, sausages, beans, tomatoes, mushrooms, and toast. Today, it remains one of Britain's most beloved meals, served in homes, cafes, and hotels across the country.</p>
+            
+            <p>The dish represents more than just food—it's a cultural institution that brings people together, whether for a leisurely weekend brunch or a hearty start to a busy day. The Full English Breakfast has even gained international recognition, with variations appearing in breakfast menus worldwide.</p>
+        </div>
+    </section>
+
+    <!-- Recipe Section -->
+    <section class="content-section" style="background: var(--cream);">
+        <h2 class="section-title">Our Recipe</h2>
+        <div class="recipe-grid">
+            <!-- Ingredients -->
+            <div class="ingredients-box">
+                <h3>Ingredients (Serves 2)</h3>
+                <div class="ingredient-item">🥓 4 rashers of back bacon</div>
+                <div class="ingredient-item">🌭 4 pork sausages</div>
+                <div class="ingredient-item">🥚 4 eggs</div>
+                <div class="ingredient-item">🍄 200g mushrooms, sliced</div>
+                <div class="ingredient-item">🍅 2 tomatoes, halved</div>
+                <div class="ingredient-item">🫘 1 can (400g) baked beans</div>
+                <div class="ingredient-item">🍞 4 slices of bread</div>
+                <div class="ingredient-item">🧈 Butter for cooking</div>
+                <div class="ingredient-item">🫒 Vegetable oil</div>
+                <div class="ingredient-item">🧂 Salt and pepper to taste</div>
+            </div>
+            
+            <!-- Instructions -->
+            <div class="instructions-box">
+                <h3>Cooking Instructions</h3>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Prepare the Sausages</h4>
+                    <p>Preheat your oven to 200°C (400°F). Place the sausages on a baking tray and cook for 20-25 minutes, turning occasionally until golden brown and cooked through.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Cook the Bacon</h4>
+                    <p>While the sausages are cooking, heat a large frying pan over medium heat. Add the bacon rashers and cook for 3-4 minutes on each side until crispy. Remove and keep warm.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Fry the Mushrooms and Tomatoes</h4>
+                    <p>In the same pan, add a little butter and cook the mushrooms for 5-6 minutes until golden. Add the tomato halves, cut side down, and cook for 3-4 minutes. Season with salt and pepper.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Heat the Beans</h4>
+                    <p>Pour the baked beans into a small saucepan and heat gently over low heat, stirring occasionally.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Fry the Eggs</h4>
+                    <p>Heat a little oil in a clean frying pan. Crack the eggs into the pan and cook to your preference (sunny side up, over easy, or scrambled).</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h4>Toast the Bread</h4>
+                    <p>Toast the bread slices until golden brown. Butter generously while still warm.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <h4>Plate and Serve</h4>
+                    <p>Arrange all components on warm plates. Serve immediately with a cup of strong English breakfast tea or fresh orange juice. Enjoy your authentic Full English Breakfast!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips and Variations -->
+    <section class="content-section">
+        <h2 class="section-title">Tips & Variations</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">👨‍🍳</div>
+                <h4>Chef's Tip</h4>
+                <p>Cook everything in stages and keep items warm in a low oven (around 100°C) while you prepare the rest. This ensures everything is hot when served.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🥓</div>
+                <h4>Bacon Choice</h4>
+                <p>Use back bacon for a traditional Full English. It's less fatty than streaky bacon and has a meatier texture that complements the other ingredients.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🌱</div>
+                <h4>Vegetarian Option</h4>
+                <p>Replace sausages and bacon with vegetarian alternatives, add hash browns, and include grilled halloumi cheese for extra protein.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🍞</div>
+                <h4>Bread Options</h4>
+                <p>Try fried bread instead of toast for an extra indulgent version. Simply fry bread slices in the bacon fat for authentic flavor.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🫘</div>
+                <h4>Bean Enhancement</h4>
+                <p>Add a splash of Worcestershire sauce to your beans while heating for extra depth of flavor.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">⏰</div>
+                <h4>Timing is Key</h4>
+                <p>Start with items that take longest (sausages), then work backwards. This ensures everything finishes at the same time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutritional Information -->
+    <section class="content-section" style="background: var(--cream);">
+        <h2 class="section-title">Nutritional Information</h2>
+        <div class="nutrition-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nutrient</th>
+                        <th>Per Serving</th>
+                        <th>% Daily Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Calories</td>
+                        <td>950 kcal</td>
+                        <td>48%</td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td>45g</td>
+                        <td>90%</td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td>65g</td>
+                        <td>22%</td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td>55g</td>
+                        <td>85%</td>
+                    </tr>
+                    <tr>
+                        <td>Fiber</td>
+                        <td>8g</td>
+                        <td>32%</td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td>1800mg</td>
+                        <td>78%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">*Based on a 2,000 calorie diet. Values may vary depending on specific ingredients used.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 British Kitchen - English Class Project</p>
+            <p>Exploring Traditional British Cuisine with Passion and Research</p>
+            <div class="social-links">
+                <a href="contact.html" class="social-link">📧</a>
+                <a href="team.html" class="social-link">👥</a>
+                <a href="index.html" class="social-link">🏠</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

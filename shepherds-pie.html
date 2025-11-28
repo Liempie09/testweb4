@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd's Pie - British Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dish-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .dish-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+        
+        .dish-hero-emoji {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .ingredients-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .ingredients-box h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .ingredient-item {
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--cream);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ingredient-item:last-child {
+            border-bottom: none;
+        }
+        
+        .instructions-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .instructions-box h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .step {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .history-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            line-height: 1.8;
+        }
+        
+        .history-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tip-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tip-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tip-card h4 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .nutrition-table {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            margin-top: 2rem;
+        }
+        
+        .nutrition-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .nutrition-table th,
+        .nutrition-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--cream);
+        }
+        
+        .nutrition-table th {
+            background: var(--cream);
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dish-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">British Kitchen</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="full-english-breakfast.html">Breakfast</a></li>
+                <li><a href="fish-and-chips.html">Fish & Chips</a></li>
+                <li><a href="shepherds-pie.html">Shepherd's Pie</a></li>
+                <li><a href="apple-pie.html">Apple Pie</a></li>
+                <li><a href="fun-zone.html">Fun Zone</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dish Hero -->
+    <section class="dish-hero">
+        <div>
+            <div class="dish-hero-emoji">🥧</div>
+            <h1>Shepherd's Pie</h1>
+            <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto;">The ultimate comfort food - savory lamb topped with creamy mashed potatoes</p>
+        </div>
+    </section>
+
+    <!-- Historical Background -->
+    <section class="content-section">
+        <h2 class="section-title">Historical Background</h2>
+        <div class="history-content">
+            <p>Shepherd's Pie is a quintessential British comfort food with roots in the rural communities of Scotland and Northern England. The dish emerged in the late 1700s as a practical way for frugal housewives to use leftover roasted meat, particularly lamb from Sunday dinners.</p>
+            
+            <p>The name "Shepherd's Pie" specifically refers to a pie made with lamb or mutton, as shepherds tend sheep. When made with beef, the dish is properly called "Cottage Pie," though the terms are often used interchangeably today. The distinction became important in the 19th century when the dish gained popularity across Britain.</p>
+            
+            <p>The introduction of the potato to Britain in the 16th century was crucial to the development of this dish. By the 18th century, potatoes had become a staple food, particularly in Scotland and Ireland. The combination of minced meat with a potato topping was both economical and filling, making it perfect for working-class families.</p>
+            
+            <p>During the Victorian era, Shepherd's Pie became a staple in British households and public houses (pubs). The dish represented the resourcefulness of British cooking - nothing was wasted, and simple ingredients were transformed into a hearty, satisfying meal. Today, it remains one of Britain's most beloved comfort foods, served in homes, pubs, and restaurants across the country.</p>
+        </div>
+    </section>
+
+    <!-- Recipe Section -->
+    <section class="content-section" style="background: var(--cream);">
+        <h2 class="section-title">Our Recipe</h2>
+        <div class="recipe-grid">
+            <!-- Ingredients -->
+            <div class="ingredients-box">
+                <h3>Ingredients (Serves 6)</h3>
+                <h4 style="color: var(--secondary-green); margin: 1rem 0;">For the Filling:</h4>
+                <div class="ingredient-item">🥩 800g minced lamb</div>
+                <div class="ingredient-item">🧅 2 large onions, diced</div>
+                <div class="ingredient-item">🥕 2 carrots, diced</div>
+                <div class="ingredient-item">🌿 2 celery stalks, diced</div>
+                <div class="ingredient-item">🧄 3 garlic cloves, minced</div>
+                <div class="ingredient-item">🍅 2 tbsp tomato paste</div>
+                <div class="ingredient-item">🍷 150ml red wine (optional)</div>
+                <div class="ingredient-item">🥫 400ml beef stock</div>
+                <div class="ingredient-item">🌿 Fresh thyme and rosemary</div>
+                <div class="ingredient-item">🧂 Salt and pepper</div>
+                
+                <h4 style="color: var(--secondary-green); margin: 1.5rem 0 1rem;">For the Topping:</h4>
+                <div class="ingredient-item">🥔 1.5kg potatoes, peeled</div>
+                <div class="ingredient-item">🧈 100g butter</div>
+                <div class="ingredient-item">🥛 100ml milk</div>
+                <div class="ingredient-item">🧀 50g cheddar cheese, grated</div>
+                <div class="ingredient-item">🧂 Salt and pepper</div>
+            </div>
+            
+            <!-- Instructions -->
+            <div class="instructions-box">
+                <h3>Cooking Instructions</h3>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Brown the Lamb</h4>
+                    <p>Heat a large pan over high heat. Add the minced lamb and cook for 8-10 minutes, breaking it up with a wooden spoon, until browned. Remove and set aside.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Cook the Vegetables</h4>
+                    <p>In the same pan, add a little oil and cook the onions, carrots, and celery for 8-10 minutes until softened. Add garlic and cook for another minute.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Build the Sauce</h4>
+                    <p>Stir in tomato paste and cook for 2 minutes. Add the wine (if using) and let it bubble for 2 minutes. Return the lamb to the pan, add stock, thyme, and rosemary. Season well.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Simmer</h4>
+                    <p>Reduce heat and simmer for 30-40 minutes until the sauce has thickened and the flavors have developed. Stir occasionally to prevent sticking.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Make the Mash</h4>
+                    <p>While the filling simmers, boil the potatoes in salted water for 15-20 minutes until tender. Drain well, then mash with butter and milk until smooth and creamy. Season to taste.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h4>Assemble</h4>
+                    <p>Preheat oven to 200°C (400°F). Transfer the lamb mixture to a large baking dish. Spread the mashed potato evenly over the top, using a fork to create texture. Sprinkle with grated cheese.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <h4>Bake</h4>
+                    <p>Bake for 25-30 minutes until the top is golden brown and crispy. Let it rest for 5 minutes before serving.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">8</div>
+                    <h4>Serve</h4>
+                    <p>Serve hot with steamed green vegetables or a fresh salad. Perfect comfort food for a cold evening!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips and Variations -->
+    <section class="content-section">
+        <h2 class="section-title">Tips & Variations</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">🥩</div>
+                <h4>Meat Choice</h4>
+                <p>Traditional Shepherd's Pie uses lamb. If using beef, it's technically called Cottage Pie. Both are delicious!</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🥔</div>
+                <h4>Perfect Mash</h4>
+                <p>Use floury potatoes like Maris Piper for the fluffiest mash. Don't over-mash or they'll become gluey.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🌿</div>
+                <h4>Flavor Boost</h4>
+                <p>Add Worcestershire sauce, tomato ketchup, or a splash of balsamic vinegar to the filling for extra depth.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">❄️</div>
+                <h4>Make Ahead</h4>
+                <p>Shepherd's Pie freezes beautifully. Assemble completely, freeze, then bake from frozen adding 15-20 minutes to cooking time.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🥕</div>
+                <h4>Veggie Additions</h4>
+                <p>Add peas, corn, or green beans to the filling for extra vegetables and color.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🧀</div>
+                <h4>Crispy Top</h4>
+                <p>Use a fork to create ridges in the mashed potato - this helps create a crispy, golden top when baked.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutritional Information -->
+    <section class="content-section" style="background: var(--cream);">
+        <h2 class="section-title">Nutritional Information</h2>
+        <div class="nutrition-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nutrient</th>
+                        <th>Per Serving</th>
+                        <th>% Daily Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Calories</td>
+                        <td>620 kcal</td>
+                        <td>31%</td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td>35g</td>
+                        <td>70%</td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td>48g</td>
+                        <td>16%</td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td>32g</td>
+                        <td>49%</td>
+                    </tr>
+                    <tr>
+                        <td>Fiber</td>
+                        <td>6g</td>
+                        <td>24%</td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td>780mg</td>
+                        <td>34%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">*Based on a 2,000 calorie diet. Values may vary depending on specific ingredients used.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 British Kitchen - English Class Project</p>
+            <p>Exploring Traditional British Cuisine with Passion and Research</p>
+            <div class="social-links">
+                <a href="contact.html" class="social-link">📧</a>
+                <a href="team.html" class="social-link">👥</a>
+                <a href="index.html" class="social-link">🏠</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Pie - British Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dish-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #C41E3A 0%, #E74C3C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .dish-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+        
+        .dish-hero-emoji {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .ingredients-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .ingredients-box h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .ingredient-item {
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--cream);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ingredient-item:last-child {
+            border-bottom: none;
+        }
+        
+        .instructions-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .instructions-box h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .step {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .history-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            line-height: 1.8;
+        }
+        
+        .history-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tip-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tip-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tip-card h4 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .nutrition-table {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            margin-top: 2rem;
+        }
+        
+        .nutrition-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .nutrition-table th,
+        .nutrition-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--cream);
+        }
+        
+        .nutrition-table th {
+            background: var(--cream);
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dish-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">British Kitchen</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="full-english-breakfast.html">Breakfast</a></li>
+                <li><a href="fish-and-chips.html">Fish & Chips</a></li>
+                <li><a href="shepherds-pie.html">Shepherd's Pie</a></li>
+                <li><a href="apple-pie.html">Apple Pie</a></li>
+                <li><a href="fun-zone.html">Fun Zone</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dish Hero -->
+    <section class="dish-hero">
+        <div>
+            <div class="dish-hero-emoji">🍎</div>
+            <h1>Apple Pie</h1>
+            <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto;">A timeless British dessert - sweet spiced apples in buttery pastry</p>
+        </div>
+    </section>
+
+    <!-- Historical Background -->
+    <section class="content-section">
+        <h2 class="section-title">Historical Background</h2>
+        <div class="history-content">
+            <p>Apple pie has been a beloved dessert in Britain since medieval times, with the first recorded recipe appearing in 1381. The dish was originally called "pyes" and was made with a variety of fillings, but apples quickly became the most popular choice due to their abundance in British orchards.</p>
+            
+            <p>During the Tudor period (1485-1603), apple pie became a staple at royal banquets and common households alike. The saying "as English as apple pie" (later adapted to "as American as apple pie") originated during this time, highlighting the dish's deep connection to British culture and identity.</p>
+            
+            <p>In medieval England, the pastry crust was often thick and served primarily as a container for the filling rather than being eaten itself. This "coffyn" (as it was called) was designed to preserve the fruit filling. Over centuries, the pastry evolved into the flaky, buttery crust we know today, becoming an integral and delicious part of the dessert.</p>
+            
+            <p>British apple pie traditionally differs from its American counterpart in several ways. It's often served with custard, cream, or ice cream rather than being eaten plain. The British version also tends to use cooking apples like Bramley, which break down during baking to create a soft, fluffy filling with a perfect balance of sweet and tart flavors.</p>
+            
+            <p>Today, apple pie remains a quintessential British dessert, served in homes, pubs, and restaurants across the country. It represents the best of British baking traditions - simple ingredients transformed into something truly special through time-honored techniques.</p>
+        </div>
+    </section>
+
+    <!-- Recipe Section -->
+    <section class="content-section" style="background: var(--cream);">
+        <h2 class="section-title">Our Recipe</h2>
+        <div class="recipe-grid">
+            <!-- Ingredients -->
+            <div class="ingredients-box">
+                <h3>Ingredients (Serves 8)</h3>
+                <h4 style="color: var(--secondary-green); margin: 1rem 0;">For the Pastry:</h4>
+                <div class="ingredient-item">🌾 400g plain flour</div>
+                <div class="ingredient-item">🧈 200g cold butter, cubed</div>
+                <div class="ingredient-item">🍬 2 tbsp caster sugar</div>
+                <div class="ingredient-item">🥚 1 egg, beaten</div>
+                <div class="ingredient-item">💧 2-3 tbsp cold water</div>
+                <div class="ingredient-item">🧂 Pinch of salt</div>
+                
+                <h4 style="color: var(--secondary-green); margin: 1.5rem 0 1rem;">For the Filling:</h4>
+                <div class="ingredient-item">🍎 1kg cooking apples (Bramley), peeled and sliced</div>
+                <div class="ingredient-item">🍬 100g caster sugar</div>
+                <div class="ingredient-item">🍬 2 tbsp brown sugar</div>
+                <div class="ingredient-item">🌿 1 tsp ground cinnamon</div>
+                <div class="ingredient-item">🌿 ¼ tsp ground nutmeg</div>
+                <div class="ingredient-item">🍋 Juice of ½ lemon</div>
+                <div class="ingredient-item">🌾 1 tbsp cornflour</div>
+                
+                <h4 style="color: var(--secondary-green); margin: 1.5rem 0 1rem;">To Finish:</h4>
+                <div class="ingredient-item">🥚 1 egg, beaten (for glazing)</div>
+                <div class="ingredient-item">🍬 Demerara sugar for sprinkling</div>
+            </div>
+            
+            <!-- Instructions -->
+            <div class="instructions-box">
+                <h3>Cooking Instructions</h3>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Make the Pastry</h4>
+                    <p>In a large bowl, rub the butter into the flour and salt until it resembles breadcrumbs. Stir in the sugar. Add the beaten egg and enough cold water to form a dough. Wrap in cling film and chill for 30 minutes.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Prepare the Filling</h4>
+                    <p>In a large bowl, mix the sliced apples with both sugars, cinnamon, nutmeg, lemon juice, and cornflour. Toss well to coat evenly.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Roll the Base</h4>
+                    <p>Preheat oven to 200°C (400°F). Roll out two-thirds of the pastry on a floured surface to about 3mm thick. Line a 23cm pie dish, leaving some overhang.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Fill the Pie</h4>
+                    <p>Spoon the apple mixture into the pastry case, mounding it slightly in the center. Don't pack it too tightly as the apples will shrink during baking.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Add the Top</h4>
+                    <p>Roll out the remaining pastry for the lid. Brush the edges of the base with water, then place the lid on top. Press the edges to seal and trim any excess. Crimp the edges with a fork or your fingers.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h4>Glaze and Vent</h4>
+                    <p>Brush the top with beaten egg and sprinkle with demerara sugar. Make a few small slits in the center to allow steam to escape.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <h4>Bake</h4>
+                    <p>Bake for 40-45 minutes until the pastry is golden brown and the filling is bubbling through the vents. If the pastry browns too quickly, cover loosely with foil.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">8</div>
+                    <h4>Serve</h4>
+                    <p>Let the pie cool for 15 minutes before serving. Serve warm with custard, vanilla ice cream, or fresh cream. Enjoy this classic British dessert!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips and Variations -->
+    <section class="content-section">
+        <h2 class="section-title">Tips & Variations</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">🍎</div>
+                <h4>Apple Selection</h4>
+                <p>Bramley apples are traditional for their tart flavor and fluffy texture. Mix with eating apples like Granny Smith for added sweetness.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">❄️</div>
+                <h4>Cold Pastry</h4>
+                <p>Keep everything cold when making pastry. Cold butter creates flaky layers. If the dough gets warm, chill it again before rolling.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🌿</div>
+                <h4>Spice It Up</h4>
+                <p>Add a pinch of ground cloves, allspice, or cardamom for extra warmth. A splash of vanilla extract enhances the apple flavor beautifully.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🥧</div>
+                <h4>Lattice Top</h4>
+                <p>For a decorative touch, create a lattice top by cutting the pastry into strips and weaving them over the filling.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🍯</div>
+                <h4>Sweetness Level</h4>
+                <p>Adjust sugar based on your apples' tartness. Taste a slice before adding to gauge how much sugar you'll need.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🥄</div>
+                <h4>Serving Suggestion</h4>
+                <p>Traditional British serving includes warm custard poured over the pie. Vanilla ice cream or clotted cream are also excellent choices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutritional Information -->
+    <section class="content-section" style="background: var(--cream);">
+        <h2 class="section-title">Nutritional Information</h2>
+        <div class="nutrition-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nutrient</th>
+                        <th>Per Serving</th>
+                        <th>% Daily Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Calories</td>
+                        <td>420 kcal</td>
+                        <td>21%</td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td>5g</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td>58g</td>
+                        <td>19%</td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td>20g</td>
+                        <td>31%</td>
+                    </tr>
+                    <tr>
+                        <td>Fiber</td>
+                        <td>3g</td>
+                        <td>12%</td>
+                    </tr>
+                    <tr>
+                        <td>Sugar</td>
+                        <td>28g</td>
+                        <td>31%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">*Based on a 2,000 calorie diet. Values do not include custard or ice cream.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 British Kitchen - English Class Project</p>
+            <p>Exploring Traditional British Cuisine with Passion and Research</p>
+            <div class="social-links">
+                <a href="contact.html" class="social-link">📧</a>
+                <a href="team.html" class="social-link">👥</a>
+                <a href="index.html" class="social-link">🏠</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Zone - British Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .fun-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #45B7D1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fun-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .fun-content {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .game-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--accent-gold);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+        }
+        
+        .game-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .game-title {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .game-description {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .memory-card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .memory-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .memory-card.flipped {
+            background: var(--cream);
+        }
+        
+        .memory-card.matched {
+            background: var(--accent-gold);
+            opacity: 0.6;
+        }
+        
+        .quiz-container {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .quiz-question {
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .quiz-option {
+            padding: 1rem;
+            background: var(--white);
+            border: 3px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .quiz-option:hover {
+            border-color: var(--secondary-green);
+            transform: translateX(5px);
+        }
+        
+        .quiz-option.correct {
+            background: #D4EDDA;
+            border-color: #28A745;
+        }
+        
+        .quiz-option.wrong {
+            background: #F8D7DA;
+            border-color: #DC3545;
+        }
+        
+        .game-btn {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .game-btn:hover {
+            background: var(--secondary-green);
+            transform: translateY(-2px);
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: 10px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .facts-carousel {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 4rem;
+            min-height: 250px;
+        }
+        
+        .fact-content {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin: 2rem 0;
+        }
+        
+        .carousel-btn {
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0 0.5rem;
+        }
+        
+        .carousel-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .fun-hero h1 { font-size: 2.5rem; }
+            .games-grid { grid-template-columns: 1fr; }
+            .memory-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">British Kitchen</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="full-english-breakfast.html">Breakfast</a></li>
+                <li><a href="fish-and-chips.html">Fish & Chips</a></li>
+                <li><a href="shepherds-pie.html">Shepherd's Pie</a></li>
+                <li><a href="apple-pie.html">Apple Pie</a></li>
+                <li><a href="fun-zone.html">Fun Zone</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="fun-hero">
+        <div>
+            <h1>🎮 Fun Zone 🎯</h1>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto; position: relative; z-index: 1;">Play games, test your knowledge, and discover amazing facts!</p>
+        </div>
+    </section>
+
+    <section class="fun-content">
+        <h2 class="section-title">Interactive Games & Challenges</h2>
+        
+        <div class="games-grid">
+            <!-- Memory Match Game -->
+            <div class="game-card">
+                <div class="game-icon">🧠</div>
+                <h3 class="game-title">Memory Match</h3>
+                <p class="game-description">Match the British dishes!</p>
+                
+                <div class="memory-grid" id="memoryGame"></div>
+                
+                <div class="game-stats">
+                    <div><div class="stat-value" id="memoryMoves">0</div><div class="stat-label">Moves</div></div>
+                    <div><div class="stat-value" id="memoryMatches">0</div><div class="stat-label">Matches</div></div>
+                </div>
+                
+                <button class="game-btn" onclick="resetMemory()">🔄 New Game</button>
+            </div>
+
+            <!-- Quiz Game -->
+            <div class="game-card">
+                <div class="game-icon">❓</div>
+                <h3 class="game-title">British Food Quiz</h3>
+                <p class="game-description">Test your knowledge!</p>
+                
+                <div class="quiz-container">
+                    <div class="quiz-question" id="quizQuestion"></div>
+                    <div class="quiz-options" id="quizOptions"></div>
+                    <div style="text-align: center; margin-top: 1rem; font-weight: bold; color: var(--primary-green);" id="quizScore">Score: 0/0</div>
+                </div>
+                
+                <button class="game-btn" onclick="nextQuestion()">➡️ Next Question</button>
+            </div>
+        </div>
+
+        <!-- Fun Facts -->
+        <div class="facts-carousel">
+            <h2 style="color: white; margin-bottom: 2rem;">Amazing British Food Facts</h2>
+            <div style="font-size: 4rem; margin-bottom: 1rem;" id="factIcon">🎯</div>
+            <div class="fact-content" id="factText"></div>
+            <div>
+                <button class="carousel-btn" onclick="prevFact()">⬅️ Previous</button>
+                <button class="carousel-btn" onclick="nextFact()">Next ➡️</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 British Kitchen - English Class Project</p>
+            <p>Exploring Traditional British Cuisine with Passion and Research</p>
+            <div class="social-links">
+                <a href="contact.html" class="social-link">📧</a>
+                <a href="team.html" class="social-link">👥</a>
+                <a href="index.html" class="social-link">🏠</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+// Memory Game
+const emojis = ['🍳', '🥓', '🐟', '🍟', '🥧', '🍎', '🌭', '🍄'];
+let cards = [];
+let flipped = [];
+let matches = 0;
+let moves = 0;
+
+function initMemory() {
+    const grid = document.getElementById('memoryGame');
+    cards = [...emojis, ...emojis].sort(() => Math.random() - 0.5);
+    grid.innerHTML = '';
+    cards.forEach((emoji, i) => {
+        const card = document.createElement('div');
+        card.className = 'memory-card';
+        card.textContent = '?';
+        card.onclick = () => flipCard(i, card, emoji);
+        grid.appendChild(card);
+    });
+    flipped = [];
+    matches = 0;
+    moves = 0;
+    document.getElementById('memoryMoves').textContent = '0';
+    document.getElementById('memoryMatches').textContent = '0';
+}
+
+function flipCard(index, card, emoji) {
+    if (flipped.length >= 2 || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+    
+    card.textContent = emoji;
+    card.classList.add('flipped');
+    flipped.push({index, card, emoji});
+    
+    if (flipped.length === 2) {
+        moves++;
+        document.getElementById('memoryMoves').textContent = moves;
+        
+        if (flipped[0].emoji === flipped[1].emoji) {
+            flipped.forEach(f => f.card.classList.add('matched'));
+            matches++;
+            document.getElementById('memoryMatches').textContent = matches;
+            flipped = [];
+            if (matches === emojis.length) {
+                setTimeout(() => alert('🎉 You won in ' + moves + ' moves!'), 300);
+            }
+        } else {
+            setTimeout(() => {
+                flipped.forEach(f => {
+                    f.card.textContent = '?';
+                    f.card.classList.remove('flipped');
+                });
+                flipped = [];
+            }, 1000);
+        }
+    }
+}
+
+function resetMemory() {
+    initMemory();
+}
+
+// Quiz Game
+const questions = [
+    {q: "What is traditionally served with Apple Pie?", opts: ["Ice Cream", "Custard", "Cream", "Chocolate"], ans: 1},
+    {q: "Which fish is used in Fish and Chips?", opts: ["Salmon", "Tuna", "Cod", "Mackerel"], ans: 2},
+    {q: "What meat is in Shepherd's Pie?", opts: ["Beef", "Lamb", "Pork", "Chicken"], ans: 1},
+    {q: "When did fish and chips shops appear?", opts: ["1760s", "1860s", "1960s", "1660s"], ans: 1},
+    {q: "What's NOT in a Full English?", opts: ["Bacon", "Croissant", "Beans", "Sausages"], ans: 1}
+];
+
+let currentQ = 0;
+let score = 0;
+let answered = false;
+
+function loadQuestion() {
+    if (currentQ >= questions.length) {
+        document.getElementById('quizQuestion').textContent = 'Quiz Complete! Score: ' + score + '/' + questions.length;
+        document.getElementById('quizOptions').innerHTML = '<p style="text-align:center;color:var(--primary-green)">Great job!</p>';
+        currentQ = 0;
+        score = 0;
+        return;
+    }
+    
+    const q = questions[currentQ];
+    document.getElementById('quizQuestion').textContent = q.q;
+    const opts = document.getElementById('quizOptions');
+    opts.innerHTML = '';
+    
+    q.opts.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = 'quiz-option';
+        div.textContent = opt;
+        div.onclick = () => checkAnswer(i, div);
+        opts.appendChild(div);
+    });
+    
+    answered = false;
+    document.getElementById('quizScore').textContent = 'Score: ' + score + '/' + currentQ;
+}
+
+function checkAnswer(selected, div) {
+    if (answered) return;
+    answered = true;
+    
+    const q = questions[currentQ];
+    const opts = document.querySelectorAll('.quiz-option');
+    
+    if (selected === q.ans) {
+        div.classList.add('correct');
+        score++;
+    } else {
+        div.classList.add('wrong');
+        opts[q.ans].classList.add('correct');
+    }
+    
+    document.getElementById('quizScore').textContent = 'Score: ' + score + '/' + (currentQ + 1);
+}
+
+function nextQuestion() {
+    if (answered || currentQ === 0) {
+        currentQ++;
+        loadQuestion();
+    }
+}
+
+// Fun Facts
+const facts = [
+    {icon: "🎯", text: "The British consume 382 million portions of fish and chips every year!"},
+    {icon: "⏰", text: "A Full English Breakfast takes up to 30 minutes to prepare properly."},
+    {icon: "🏆", text: "Shepherd's Pie uses lamb. With beef, it's called Cottage Pie!"},
+    {icon: "📜", text: "The first apple pie recipe in England dates back to 1381!"},
+    {icon: "🌍", text: "Fish and chips wasn't rationed during WWII. Churchill called it 'the good companions'!"},
+    {icon: "👑", text: "The Full English was popularized by Victorian gentry."},
+    {icon: "🥔", text: "Maris Piper potatoes are best for chips!"},
+    {icon: "🍺", text: "Cold beer in batter creates crispy fish through carbonation!"}
+];
+
+let factIndex = 0;
+
+function showFact() {
+    document.getElementById('factIcon').textContent = facts[factIndex].icon;
+    document.getElementById('factText').textContent = facts[factIndex].text;
+}
+
+function nextFact() {
+    factIndex = (factIndex + 1) % facts.length;
+    showFact();
+}
+
+function prevFact() {
+    factIndex = (factIndex - 1 + facts.length) % facts.length;
+    showFact();
+}
+
+// Initialize
+window.onload = function() {
+    initMemory();
+    loadQuestion();
+    showFact();
+};
+    </script>
+</body>
+</html>

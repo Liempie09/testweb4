@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish and Chips - British Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dish-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #1e5a8e 0%, #4a90c4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .dish-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+        
+        .dish-hero-emoji {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .ingredients-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .ingredients-box h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .ingredient-item {
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--cream);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ingredient-item:last-child {
+            border-bottom: none;
+        }
+        
+        .instructions-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .instructions-box h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .step {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .history-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            line-height: 1.8;
+        }
+        
+        .history-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tip-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tip-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tip-card h4 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .nutrition-table {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            margin-top: 2rem;
+        }
+        
+        .nutrition-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .nutrition-table th,
+        .nutrition-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--cream);
+        }
+        
+        .nutrition-table th {
+            background: var(--cream);
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dish-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">British Kitchen</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="full-english-breakfast.html">Breakfast</a></li>
+                <li><a href="fish-and-chips.html">Fish & Chips</a></li>
+                <li><a href="shepherds-pie.html">Shepherd's Pie</a></li>
+                <li><a href="apple-pie.html">Apple Pie</a></li>
+                <li><a href="fun-zone.html">Fun Zone</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dish Hero -->
+    <section class="dish-hero">
+        <div>
+            <div class="dish-hero-emoji">🐟</div>
+            <h1>Fish and Chips</h1>
+            <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto;">Britain's most iconic takeaway - crispy battered fish with golden chips</p>
+        </div>
+    </section>
+
+    <!-- Historical Background -->
+    <section class="content-section">
+        <h2 class="section-title">Historical Background</h2>
+        <div class="history-content">
+            <p>Fish and chips is arguably Britain's most famous dish, with a history dating back to the 1860s. The combination of fried fish and chips emerged in the working-class neighborhoods of London and the industrial towns of Northern England, where it quickly became a staple meal for factory workers and their families.</p>
+            
+            <p>The origins of fish and chips are somewhat disputed, with both London and Lancashire claiming to be the birthplace. Joseph Malin is often credited with opening the first fish and chip shop in London's East End around 1860, while John Lees is said to have started selling the dish from a wooden hut in Mossley, Lancashire, around the same time.</p>
+            
+            <p>During World War II, fish and chips was one of the few foods not rationed by the British government, recognizing its importance to national morale. Winston Churchill called fish and chips "the good companions," and the dish became a symbol of British resilience during difficult times.</p>
+            
+            <p>Traditionally, fish and chips were wrapped in newspaper, which not only kept them warm but also added to the authentic experience. While health regulations have since changed this practice, the tradition lives on in the collective memory of British culture. Today, there are approximately 10,500 fish and chip shops across the UK, serving this beloved dish to millions of people each year.</p>
+        </div>
+    </section>
+
+    <!-- Recipe Section -->
+    <section class="content-section" style="background: var(--cream);">
+        <h2 class="section-title">Our Recipe</h2>
+        <div class="recipe-grid">
+            <!-- Ingredients -->
+            <div class="ingredients-box">
+                <h3>Ingredients (Serves 4)</h3>
+                <h4 style="color: var(--secondary-green); margin: 1rem 0;">For the Fish:</h4>
+                <div class="ingredient-item">🐟 4 cod or haddock fillets (200g each)</div>
+                <div class="ingredient-item">🌾 200g plain flour</div>
+                <div class="ingredient-item">🍺 300ml cold beer or sparkling water</div>
+                <div class="ingredient-item">🧂 1 tsp baking powder</div>
+                <div class="ingredient-item">🧂 Salt and pepper</div>
+                
+                <h4 style="color: var(--secondary-green); margin: 1.5rem 0 1rem;">For the Chips:</h4>
+                <div class="ingredient-item">🥔 1kg potatoes (Maris Piper or King Edward)</div>
+                <div class="ingredient-item">🫒 Vegetable oil for deep frying</div>
+                
+                <h4 style="color: var(--secondary-green); margin: 1.5rem 0 1rem;">To Serve:</h4>
+                <div class="ingredient-item">🍋 Lemon wedges</div>
+                <div class="ingredient-item">🫛 Mushy peas</div>
+                <div class="ingredient-item">🧂 Salt and malt vinegar</div>
+                <div class="ingredient-item">🥫 Tartar sauce</div>
+            </div>
+            
+            <!-- Instructions -->
+            <div class="instructions-box">
+                <h3>Cooking Instructions</h3>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Prepare the Chips</h4>
+                    <p>Peel the potatoes and cut into chips about 1cm thick. Rinse in cold water to remove excess starch, then pat dry thoroughly with kitchen paper.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>First Fry the Chips</h4>
+                    <p>Heat oil to 130°C (265°F) in a deep fryer or large pan. Fry the chips in batches for 8-10 minutes until soft but not colored. Remove and drain on kitchen paper.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Make the Batter</h4>
+                    <p>In a large bowl, mix flour, baking powder, and a pinch of salt. Gradually whisk in the cold beer or sparkling water until you have a smooth, thick batter. Let it rest for 10 minutes.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Prepare the Fish</h4>
+                    <p>Pat the fish fillets dry with kitchen paper. Season with salt and pepper. Dust each fillet lightly with flour before dipping in batter.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Fry the Fish</h4>
+                    <p>Increase oil temperature to 180°C (350°F). Dip each fillet in batter, letting excess drip off. Carefully lower into the hot oil and fry for 6-8 minutes until golden and crispy. Drain on kitchen paper.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h4>Second Fry the Chips</h4>
+                    <p>Return the chips to the oil at 180°C and fry for 3-4 minutes until golden and crispy. Drain and season immediately with salt.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <h4>Serve</h4>
+                    <p>Serve the fish and chips immediately on warm plates or wrapped in paper. Add lemon wedges, mushy peas, and offer malt vinegar and tartar sauce on the side. Enjoy your authentic British fish and chips!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips and Variations -->
+    <section class="content-section">
+        <h2 class="section-title">Tips & Variations</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">🌡️</div>
+                <h4>Temperature Control</h4>
+                <p>Use a thermometer to maintain proper oil temperature. Too hot and the batter burns; too cool and it becomes greasy.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🐟</div>
+                <h4>Fish Selection</h4>
+                <p>Cod and haddock are traditional, but you can also use plaice, pollock, or even sustainable alternatives like coley.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🍺</div>
+                <h4>Batter Secret</h4>
+                <p>Using cold beer or sparkling water creates a lighter, crispier batter. The carbonation helps create air pockets when frying.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🥔</div>
+                <h4>Perfect Chips</h4>
+                <p>Double frying is essential! The first fry cooks the potato, the second creates the crispy exterior. Don't skip this step.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🧂</div>
+                <h4>Seasoning Timing</h4>
+                <p>Always season chips immediately after frying while they're still hot. The salt will stick better and distribute evenly.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🫛</div>
+                <h4>Mushy Peas</h4>
+                <p>Make authentic mushy peas by simmering dried marrowfat peas with a pinch of sugar and butter until soft and creamy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutritional Information -->
+    <section class="content-section" style="background: var(--cream);">
+        <h2 class="section-title">Nutritional Information</h2>
+        <div class="nutrition-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nutrient</th>
+                        <th>Per Serving</th>
+                        <th>% Daily Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Calories</td>
+                        <td>840 kcal</td>
+                        <td>42%</td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td>42g</td>
+                        <td>84%</td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td>78g</td>
+                        <td>26%</td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td>38g</td>
+                        <td>58%</td>
+                    </tr>
+                    <tr>
+                        <td>Fiber</td>
+                        <td>6g</td>
+                        <td>24%</td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td>920mg</td>
+                        <td>40%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">*Based on a 2,000 calorie diet. Values may vary depending on frying method and portion size.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 British Kitchen - English Class Project</p>
+            <p>Exploring Traditional British Cuisine with Passion and Research</p>
+            <div class="social-links">
+                <a href="contact.html" class="social-link">📧</a>
+                <a href="team.html" class="social-link">👥</a>
+                <a href="index.html" class="social-link">🏠</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
