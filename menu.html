@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - British Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .menu-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, #2D5016 0%, #4A7C23 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 6rem 2rem 3rem;
+        }
+
+        .menu-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .menu-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .documents-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .document-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .document-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-green);
+        }
+
+        .document-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .document-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .document-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .document-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .document-link:hover {
+            background: var(--dark-green);
+        }
+
+        .document-filetype {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--cream);
+            color: var(--text-primary);
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">British Kitchen</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="full-english-breakfast.html">Breakfast</a>
+                <a href="fish-and-chips.html">Fish & Chips</a>
+                <a href="shepherds-pie.html">Shepherd's Pie</a>
+                <a href="apple-pie.html">Apple Pie</a>
+                <a href="menu.html" class="active">Menu</a>
+                <a href="team.html">Team</a>
+                <a href="fun-zone.html">Fun Zone</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="menu-hero">
+        <div class="container">
+            <h1>📋 Recipe Menu & Documents</h1>
+            <p>Access our detailed recipes and cooking documentation</p>
+        </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section class="documents-section">
+        <h2 class="section-title">Available Documents</h2>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+            Click on any document to view or download the full recipe
+        </p>
+
+        <div class="documents-grid">
+            <!-- Full English Breakfast Document -->
+            <div class="document-card">
+                <span class="document-filetype">.DOCX</span>
+                <span class="document-icon">🍳🥓</span>
+                <h3>Full English Breakfast</h3>
+                <p>Complete recipe with ingredients, step-by-step instructions, cooking tips, and serving suggestions.</p>
+                <!-- REPLACE WITH YOUR ACTUAL WORD DOCUMENT -->
+                <a href="full-english-breakfast-recipe.docx" class="document-link" download>Open Document</a>
+            </div>
+
+            <!-- Fish and Chips Document -->
+            <div class="document-card">
+                <span class="document-filetype">.DOCX</span>
+                <span class="document-icon">🐟🍟</span>
+                <h3>Fish and Chips</h3>
+                <p>Detailed recipe including batter preparation, frying techniques, and perfect chip making.</p>
+                <!-- REPLACE WITH YOUR ACTUAL WORD DOCUMENT -->
+                <a href="fish-and-chips-recipe.docx" class="document-link" download>Open Document</a>
+            </div>
+
+            <!-- Shepherd's Pie Document -->
+            <div class="document-card">
+                <span class="document-filetype">.DOCX</span>
+                <span class="document-icon">🥧</span>
+                <h3>Shepherd's Pie</h3>
+                <p>Traditional recipe with meat filling preparation, potato topping, and baking instructions.</p>
+                <!-- REPLACE WITH YOUR ACTUAL WORD DOCUMENT -->
+                <a href="shepherds-pie-recipe.docx" class="document-link" download>Open Document</a>
+            </div>
+
+            <!-- Apple Pie Document -->
+            <div class="document-card">
+                <span class="document-filetype">.DOCX</span>
+                <span class="document-icon">🍎</span>
+                <h3>Apple Pie</h3>
+                <p>Classic dessert recipe with pastry preparation, apple filling, and baking tips.</p>
+                <!-- REPLACE WITH YOUR ACTUAL WORD DOCUMENT -->
+                <a href="apple-pie-recipe.docx" class="document-link" download>Open Document</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 British Kitchen - English Class Project</p>
+            <p>Exploring Traditional British Cuisine with Passion and Research</p>
+            <div class="social-links">
+                <a href="contact.html" class="social-link">📧</a>
+                <a href="team.html" class="social-link">👥</a>
+                <a href="index.html" class="social-link">🏠</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
